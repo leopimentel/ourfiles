@@ -23,6 +23,14 @@ io.on('connection', socket => {
     });
 });
 
+//middleware
+app.use((req, res, next) => {
+    req.io = io;
+    //precisa passa para o next middleware
+    return next();
+});
+
+
 //uom4Z#g5*Kn
 mongoose.connect('mongodb+srv://omnistack:jo0KC0lLR0t387sk@cursonode-ijeke.mongodb.net/omnistack?retryWrites=true',
 {
@@ -44,12 +52,5 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 
 //importa as rotas
 app.use(require('./routes'));
-
-//middleware
-app.use((req, res, next) => {
-    req.io = io;
-    //precisa passa para o next middleware
-    return next();
-});
 
 server.listen(process.env.PORT || 3333);

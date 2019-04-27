@@ -4,6 +4,13 @@ const express = require('express');
 //ORM - escrever em js 
 const mongoose = require('mongoose');
 
+//salva variaveis da app
+const app = express();
+
+const cors = require('cors');
+
+app.use(cors());
+
 const server = require('http').Server(app);
 
 //aqi app ja entende http e socket
@@ -24,14 +31,7 @@ mongoose.connect('mongodb+srv://omnistack:jo0KC0lLR0t387sk@cursonode-ijeke.mongo
 
 //nodemon = hotreload do server
 
-//salva variaveis da app
-const app = express();
-
-app.use(cors());
-
 const path = require('path');
-
-const cors = require('cors');
 
 //aceita json
 app.use(express.json());

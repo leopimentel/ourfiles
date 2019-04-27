@@ -52,4 +52,4 @@ app.use((req, res, next) => {
     return next();
 });
 
-server.listen(3333);
+server.listen(process.env.PORT || 3333);

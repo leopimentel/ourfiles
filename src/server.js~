@@ -1,0 +1,27 @@
+//express - define rotas e outras coisas pra o app
+const express = require('express');
+
+//senha bd = jo0KC0lLR0t387sk
+//mongodb+srv://omnistack:<password>@cursonode-ijeke.mongodb.net/test?retryWrites=true
+
+//mongoose = ORM
+
+//nodemon = hotreload do server
+
+//salva variaveis da app
+const app = express();
+
+
+//aceita json
+app.use(express.json());
+
+
+//aceita arquivo
+app.use(express.urlencoded({ extended: true }));
+
+
+//importa as rotas
+app.use(require('./routes'));
+
+
+app.listen(3333);
